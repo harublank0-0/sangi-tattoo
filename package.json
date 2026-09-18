@@ -27,10 +27,13 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
     "@posthog/react": "^1.7.0",
     "@prisma/adapter-pg": "^7.4.2",
     "@prisma/client": "^7.4.2",
     "@sentry/tanstackstart-react": "^10.67.0",
+    "@supabase/supabase-js": "^2.116.0",
     "@t3-oss/env-core": "^0.13.10",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/ai": "latest",
@@ -58,6 +61,7 @@
     "nitro": "3.0.260610-beta",
     "posthog-js": "^1.358.1",
     "prisma": "^7.4.2",
+    "radix-ui": "^1.6.7",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "streamdown": "^2.3.0",
@@ -88,7 +92,7 @@
     "typescript": "^6.0.2",
     "vite": "^8.0.0"
   },
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@12.4.2",
   "engines": {
     "node": "24.3.0",
     "pnpm": "11.9.0"

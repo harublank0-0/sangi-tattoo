@@ -26,7 +26,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "TanStack Start Starter",
+				title: "Sangi Tattoo Studio",
 			},
 		],
 		links: [
@@ -48,18 +48,20 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<body>
 				<PostHogProvider>
 					{children}
-					<TanStackDevtools
-						config={{
-							position: "bottom-right",
-						}}
-						plugins={[
-							{
-								name: "Tanstack Router",
-								render: <TanStackRouterDevtoolsPanel />,
-							},
-							TanStackQueryDevtools,
-						]}
-					/>
+					{import.meta.env.DEV ? (
+						<TanStackDevtools
+							config={{
+								position: "bottom-right",
+							}}
+							plugins={[
+								{
+									name: "Tanstack Router",
+									render: <TanStackRouterDevtoolsPanel />,
+								},
+								TanStackQueryDevtools,
+							]}
+						/>
+					) : null}
 				</PostHogProvider>
 				<Scripts />
 			</body>

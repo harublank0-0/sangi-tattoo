@@ -10,11 +10,65 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutIndexRouteImport } from './routes/about/index'
+import { Route as AftercareIndexRouteImport } from './routes/aftercare/index'
+import { Route as BookingIndexRouteImport } from './routes/booking/index'
+import { Route as FlashIndexRouteImport } from './routes/flash/index'
+import { Route as PortfolioIndexRouteImport } from './routes/portfolio/index'
+import { Route as PortfolioSlugRouteImport } from './routes/portfolio/$slug'
+import { Route as AdminBookingsIndexRouteImport } from './routes/admin/bookings/index'
+import { Route as AdminFlastIndexRouteImport } from './routes/admin/flast/index'
+import { Route as AdminPortfolioIndexRouteImport } from './routes/admin/portfolio/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutIndexRoute = AboutIndexRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AftercareIndexRoute = AftercareIndexRouteImport.update({
+  id: '/aftercare/',
+  path: '/aftercare/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingIndexRoute = BookingIndexRouteImport.update({
+  id: '/booking/',
+  path: '/booking/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FlashIndexRoute = FlashIndexRouteImport.update({
+  id: '/flash/',
+  path: '/flash/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
+  id: '/portfolio/',
+  path: '/portfolio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
+  id: '/portfolio/$slug',
+  path: '/portfolio/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBookingsIndexRoute = AdminBookingsIndexRouteImport.update({
+  id: '/admin/bookings/',
+  path: '/admin/bookings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminFlastIndexRoute = AdminFlastIndexRouteImport.update({
+  id: '/admin/flast/',
+  path: '/admin/flast/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPortfolioIndexRoute = AdminPortfolioIndexRouteImport.update({
+  id: '/admin/portfolio/',
+  path: '/admin/portfolio/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -25,28 +79,98 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/about/': typeof AboutIndexRoute
+  '/aftercare/': typeof AftercareIndexRoute
+  '/booking/': typeof BookingIndexRoute
+  '/flash/': typeof FlashIndexRoute
+  '/portfolio/': typeof PortfolioIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/admin/bookings/': typeof AdminBookingsIndexRoute
+  '/admin/flast/': typeof AdminFlastIndexRoute
+  '/admin/portfolio/': typeof AdminPortfolioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/about': typeof AboutIndexRoute
+  '/aftercare': typeof AftercareIndexRoute
+  '/booking': typeof BookingIndexRoute
+  '/flash': typeof FlashIndexRoute
+  '/portfolio': typeof PortfolioIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/admin/bookings': typeof AdminBookingsIndexRoute
+  '/admin/flast': typeof AdminFlastIndexRoute
+  '/admin/portfolio': typeof AdminPortfolioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/about/': typeof AboutIndexRoute
+  '/aftercare/': typeof AftercareIndexRoute
+  '/booking/': typeof BookingIndexRoute
+  '/flash/': typeof FlashIndexRoute
+  '/portfolio/': typeof PortfolioIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/admin/bookings/': typeof AdminBookingsIndexRoute
+  '/admin/flast/': typeof AdminFlastIndexRoute
+  '/admin/portfolio/': typeof AdminPortfolioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/auth/$'
+  fullPaths:
+    | '/'
+    | '/portfolio/$slug'
+    | '/about/'
+    | '/aftercare/'
+    | '/booking/'
+    | '/flash/'
+    | '/portfolio/'
+    | '/api/auth/$'
+    | '/admin/bookings/'
+    | '/admin/flast/'
+    | '/admin/portfolio/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/auth/$'
-  id: '__root__' | '/' | '/api/auth/$'
+  to:
+    | '/'
+    | '/portfolio/$slug'
+    | '/about'
+    | '/aftercare'
+    | '/booking'
+    | '/flash'
+    | '/portfolio'
+    | '/api/auth/$'
+    | '/admin/bookings'
+    | '/admin/flast'
+    | '/admin/portfolio'
+  id:
+    | '__root__'
+    | '/'
+    | '/portfolio/$slug'
+    | '/about/'
+    | '/aftercare/'
+    | '/booking/'
+    | '/flash/'
+    | '/portfolio/'
+    | '/api/auth/$'
+    | '/admin/bookings/'
+    | '/admin/flast/'
+    | '/admin/portfolio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PortfolioSlugRoute: typeof PortfolioSlugRoute
+  AboutIndexRoute: typeof AboutIndexRoute
+  AftercareIndexRoute: typeof AftercareIndexRoute
+  BookingIndexRoute: typeof BookingIndexRoute
+  FlashIndexRoute: typeof FlashIndexRoute
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  AdminBookingsIndexRoute: typeof AdminBookingsIndexRoute
+  AdminFlastIndexRoute: typeof AdminFlastIndexRoute
+  AdminPortfolioIndexRoute: typeof AdminPortfolioIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -56,6 +180,69 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aftercare/': {
+      id: '/aftercare/'
+      path: '/aftercare'
+      fullPath: '/aftercare/'
+      preLoaderRoute: typeof AftercareIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking/': {
+      id: '/booking/'
+      path: '/booking'
+      fullPath: '/booking/'
+      preLoaderRoute: typeof BookingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flash/': {
+      id: '/flash/'
+      path: '/flash'
+      fullPath: '/flash/'
+      preLoaderRoute: typeof FlashIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/': {
+      id: '/portfolio/'
+      path: '/portfolio'
+      fullPath: '/portfolio/'
+      preLoaderRoute: typeof PortfolioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/$slug': {
+      id: '/portfolio/$slug'
+      path: '/portfolio/$slug'
+      fullPath: '/portfolio/$slug'
+      preLoaderRoute: typeof PortfolioSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/bookings/': {
+      id: '/admin/bookings/'
+      path: '/admin/bookings'
+      fullPath: '/admin/bookings/'
+      preLoaderRoute: typeof AdminBookingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/flast/': {
+      id: '/admin/flast/'
+      path: '/admin/flast'
+      fullPath: '/admin/flast/'
+      preLoaderRoute: typeof AdminFlastIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/portfolio/': {
+      id: '/admin/portfolio/'
+      path: '/admin/portfolio'
+      fullPath: '/admin/portfolio/'
+      preLoaderRoute: typeof AdminPortfolioIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -70,7 +257,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PortfolioSlugRoute: PortfolioSlugRoute,
+  AboutIndexRoute: AboutIndexRoute,
+  AftercareIndexRoute: AftercareIndexRoute,
+  BookingIndexRoute: BookingIndexRoute,
+  FlashIndexRoute: FlashIndexRoute,
+  PortfolioIndexRoute: PortfolioIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  AdminBookingsIndexRoute: AdminBookingsIndexRoute,
+  AdminFlastIndexRoute: AdminFlastIndexRoute,
+  AdminPortfolioIndexRoute: AdminPortfolioIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
